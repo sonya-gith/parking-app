@@ -37,79 +37,64 @@ input:focus { border-color: var(--green); }
 .welcome-name { font-size: 20px; font-weight: 700; margin-bottom: 2px; }
 .welcome-date { font-size: 14px; color: var(--text-muted); }
 
-.time-trigger {
-  width: 100%; padding: 14px 16px; font-size: 16px; font-weight: 500;
-  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
-  outline: none; color: var(--text); background: var(--white); cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between;
-  min-height: 48px;
+.instruction-banner {
+  background: #111; color: #fff; padding: 16px 20px;
+  font-size: 16px; font-weight: 600; line-height: 1.5;
 }
-.time-trigger:active { border-color: var(--green); }
-.time-trigger.open { border-color: var(--green); border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-.time-trigger i { font-size: 13px; color: var(--text-muted); transition: transform 0.15s; }
-.time-trigger.open i { transform: rotate(180deg); }
+.instruction-date { color: #4FA8F5; }
 
-.time-list {
-  border: 1.5px solid var(--green); border-top: none;
-  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-  max-height: 320px; overflow-y: auto; background: var(--white);
+.time-grid-wrap { padding: 16px; }
+.time-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
 }
-.time-option {
-  width: 100%; padding: 14px 16px; font-size: 16px; font-weight: 500;
-  border: none; border-bottom: 1px solid var(--border);
-  background: var(--white); color: var(--text); text-align: left;
-  cursor: pointer; display: flex; align-items: center; justify-content: space-between;
-  min-height: 48px;
+.time-btn {
+  min-height: 48px; padding: 14px 12px;
+  border: 1.5px solid var(--text); border-radius: var(--radius);
+  background: var(--white); color: var(--text);
+  font-size: 15px; font-weight: 600; cursor: pointer;
+  text-align: center;
 }
-.time-option:last-child { border-bottom: none; }
-.time-option:active { background: var(--bg); }
-.time-option.full { color: var(--text-muted); cursor: default; background: var(--bg); }
-.time-option .time-option-sub { font-size: 12px; color: var(--text-muted); }
-.time-option.full .time-option-sub { color: var(--red); }
+.time-btn:active { background: var(--green-bg); }
+.time-btn.full {
+  border: 1.5px solid var(--border); background: var(--bg);
+  color: var(--text-muted); cursor: default;
+}
+.time-btn.selected {
+  border: 1.5px solid var(--green-dark); background: #639922; color: #fff;
+}
 
-.spots-grid { display: flex; flex-direction: column; gap: 10px; }
-.spot-card {
-  border: 1.5px solid var(--border); border-radius: var(--radius);
-  padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;
-  cursor: pointer; transition: border-color 0.15s, background 0.15s;
-  background: var(--white);
+.book-spot-btn {
+  width: 100%; margin-top: 18px; padding: 16px;
+  border: 1.5px solid var(--text); border-radius: var(--radius);
+  background: #EF9F27; color: var(--text);
+  font-size: 17px; font-weight: 700; cursor: pointer;
+  min-height: 52px;
 }
-.spot-card.free:hover { border-color: var(--green); }
-.spot-card.taken { background: var(--bg); cursor: default; opacity: 0.7; }
-.spot-card.selected { border: 2px solid var(--green); background: var(--green-bg); }
-.spot-card.mine { border: 2px solid #EF9F27; background: #FAEEDA; cursor: pointer; }
-.spot-card-name { font-size: 16px; font-weight: 600; }
-.spot-card-status { font-size: 13px; margin-top: 2px; color: var(--text-muted); }
-.spot-card.free .spot-card-status { color: var(--green-dark); }
-.spot-card.taken .spot-card-status { color: var(--red); }
-.spot-card.selected .spot-card-status { color: var(--green-dark); }
-.spot-card.mine .spot-card-status { color: #854F0B; }
-.spot-card-icon { font-size: 22px; }
-.spot-card.free .spot-card-icon { color: var(--green); }
-.spot-card.taken .spot-card-icon { color: var(--red); }
-.spot-card.selected .spot-card-icon { color: var(--green-dark); }
-.spot-card.mine .spot-card-icon { color: #854F0B; }
+.book-spot-btn:disabled {
+  background: var(--bg); color: var(--text-muted);
+  border-color: var(--border); cursor: default;
+}
+.book-spot-btn:active:not(:disabled) { background: #d98c1c; }
 
 .res-banner-static {
-  background: var(--green-bg); border: 2px solid var(--green);
-  border-radius: var(--radius); padding: 16px 18px; margin-top: 18px;
+  background: #111; color: #fff;
+  padding: 16px 18px; margin-top: 18px;
+  font-size: 16px; font-weight: 600; line-height: 1.6;
 }
-.res-banner-static-title {
-  font-size: 12px; font-weight: 700; color: var(--green-dark);
-  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;
-}
-.res-banner-static-details { font-size: 18px; font-weight: 700; color: var(--green-dark); margin-bottom: 14px; }
-.res-banner-actions { display: flex; gap: 8px; }
+.res-banner-static .res-detail-highlight { color: #4FA8F5; }
+.res-banner-actions { display: flex; gap: 12px; margin-top: 14px; }
 .res-banner-cancel {
-  background: none; border: 1.5px solid var(--red); color: var(--red);
-  border-radius: var(--radius-sm); padding: 10px 16px; flex: 1;
-  font-size: 14px; font-weight: 600; cursor: pointer;
+  background: var(--white); border: 1.5px solid var(--green-dark); color: var(--green-dark);
+  border-radius: var(--radius); padding: 14px 16px; flex: 1;
+  font-size: 16px; font-weight: 700; cursor: pointer; min-height: 48px;
 }
-.res-banner-edit {
-  background: none; border: 1.5px solid var(--green-dark); color: var(--green-dark);
-  border-radius: var(--radius-sm); padding: 10px 16px; flex: 1;
-  font-size: 14px; font-weight: 600; cursor: pointer;
+.res-banner-cancel:active { background: var(--green-bg); }
+.res-banner-change {
+  background: #EF9F27; border: 1.5px solid var(--text); color: var(--text);
+  border-radius: var(--radius); padding: 14px 16px; flex: 1;
+  font-size: 16px; font-weight: 700; cursor: pointer; min-height: 48px;
 }
+.res-banner-change:active { background: #d98c1c; }
 .cancel-confirm-msg {
   background: var(--green-bg); color: var(--green-dark);
   border-radius: var(--radius-sm); padding: 12px 16px; margin-top: 14px;
@@ -216,37 +201,26 @@ input:focus { border-color: var(--green); }
 
       <!-- Reserved state -->
       <div id="reserved-state" style="display:none;">
-        <div class="res-banner-static">
-          <div class="res-banner-static-title">You have reserved a spot for</div>
-          <div class="res-banner-static-details" id="reserved-details"></div>
-          <div class="res-banner-actions">
-            <button class="res-banner-edit" onclick="startEditReservation()">Edit reservation</button>
-            <button class="res-banner-cancel" onclick="cancelMyRes()">Cancel reservation</button>
-          </div>
+        <div class="res-banner-static" id="res-banner-static">
+          <span id="reserved-details"></span>
+        </div>
+        <div class="res-banner-actions">
+          <button class="res-banner-cancel" onclick="cancelMyRes()">Cancel</button>
+          <button class="res-banner-change" onclick="startEditReservation()">Change</button>
         </div>
         <div class="cancel-confirm-msg" id="cancel-confirm-msg" style="display:none;">Reservation cancelled.</div>
       </div>
+    </div>
 
-      <!-- Step 1: time picker -->
-      <div id="picker-state">
-        <div class="field-label" id="time-select-label" style="margin-top:18px;">Select a time slot</div>
-        <button class="time-trigger" id="time-trigger" onclick="toggleTimeList()">
-          <span id="time-trigger-label">Choose a time…</span>
-          <i class="fa-solid fa-chevron-down" id="time-trigger-chevron"></i>
-        </button>
-        <div class="time-list" id="time-list" style="display:none;"></div>
-
-        <!-- Step 2: spots -->
-        <div id="spots-section" style="display:none; margin-top:18px;">
-          <div class="field-label">Select a spot</div>
-          <div class="spots-grid" id="spots-grid"></div>
-        </div>
-
-        <!-- Step 3: confirm -->
-        <div id="confirm-section" style="display:none; margin-top:16px;">
-          <button class="btn" onclick="confirmReservation()">Confirm reservation</button>
-          <button class="btn-ghost" onclick="cancelPendingSelection()">Cancel</button>
-        </div>
+    <!-- Step 1: time grid picker -->
+    <div id="picker-state">
+      <div class="instruction-banner">
+        To book a parking spot,<br>
+        Select a time for <span class="instruction-date" id="instruction-date"></span>:
+      </div>
+      <div class="time-grid-wrap">
+        <div class="time-grid" id="time-grid"></div>
+        <button class="book-spot-btn" id="book-spot-btn" onclick="bookSelectedSlot()" disabled>Book spot</button>
       </div>
     </div>
   </div>
@@ -453,67 +427,14 @@ async function handleReturningConfirm() {
 // ── RESERVATION SCREEN ───────────────────────────────────────────────────────
 let latestReservations = {};
 let selectedSlotKey = null;
-let selectedSpot = null;
 
 function startReservationScreen() {
   const d = getTargetDate();
   const firstName = currentName ? currentName.split(" ")[0] : "";
   setText("res-welcome-name", "Welcome, " + firstName + "!");
   setText("res-welcome-date", formatDate(d));
-  setText("time-select-label", "Select a time for " + formatDateWithRelative(d));
-  populateTimeDropdown();
   showScreen("screen-reserve");
   subscribeToSlots();
-}
-
-let timeListOpen = false;
-
-function populateTimeDropdown() {
-  renderTimeList();
-}
-
-function toggleTimeList() {
-  timeListOpen = !timeListOpen;
-  const list = el("time-list");
-  const trigger = el("time-trigger");
-  if (list) list.style.display = timeListOpen ? "block" : "none";
-  if (trigger) trigger.classList.toggle("open", timeListOpen);
-}
-
-function renderTimeList() {
-  const list = el("time-list");
-  if (!list) return;
-  list.innerHTML = "";
-  TIME_SLOTS.forEach(slot => {
-    const sd = latestReservations[slot.start] || {};
-    const freeCount = SPOTS.length - Object.keys(sd).length;
-    const isFull = freeCount === 0;
-    const opt = document.createElement("button");
-    opt.className = "time-option" + (isFull ? " full" : "");
-    opt.type = "button";
-    opt.innerHTML = "<span>" + slot.label + "</span>" +
-      (isFull ? "<span class=\"time-option-sub\">Full</span>" : "");
-    if (!isFull) opt.onclick = () => selectTimeSlot(slot.start, slot.label);
-    list.appendChild(opt);
-  });
-}
-
-function selectTimeSlot(slotStart, slotLabel) {
-  selectedSlotKey = slotStart;
-  selectedSpot = null;
-  const triggerLabel = el("time-trigger-label");
-  if (triggerLabel) triggerLabel.textContent = slotLabel;
-  timeListOpen = false;
-  const list = el("time-list");
-  const trigger = el("time-trigger");
-  if (list) list.style.display = "none";
-  if (trigger) trigger.classList.remove("open");
-
-  const spotsSection = el("spots-section");
-  const confirmSection = el("confirm-section");
-  if (confirmSection) confirmSection.style.display = "none";
-  if (spotsSection) spotsSection.style.display = "block";
-  renderSpotsForSlot(selectedSlotKey);
 }
 
 function subscribeToSlots() {
@@ -547,7 +468,6 @@ function renderReservationUI() {
   if (!reservedState || !pickerState) return;
 
   if (isShowingCancelMessage) {
-    // Keep showing the cancel confirmation; ignore snapshot updates until the timer clears it
     return;
   }
 
@@ -555,92 +475,73 @@ function renderReservationUI() {
     const endH = parseInt(myRes.slotKey.split(":")[0]) + 1;
     const endLabel = (endH < 10 ? "0"+endH : endH) + ":00";
     const d = getTargetDate();
-    setText("reserved-details", formatDateWithRelative(d) + ", " + myRes.slotKey + "–" + endLabel);
+    const detailsEl = el("reserved-details");
+    if (detailsEl) {
+      detailsEl.innerHTML = "You booked <span class=\"res-detail-highlight\">" + formatDateWithRelative(d) + "</span>, <span class=\"res-detail-highlight\">" + myRes.slotKey + "-" + endLabel + "</span>";
+    }
     reservedState.style.display = "block";
-    const staticCard = reservedState.querySelector(".res-banner-static");
+    const staticCard = el("res-banner-static");
     if (staticCard) staticCard.style.display = "block";
+    const actions = reservedState.querySelector(".res-banner-actions");
+    if (actions) actions.style.display = "flex";
     const msg = el("cancel-confirm-msg");
     if (msg) msg.style.display = "none";
     pickerState.style.display = "none";
   } else {
     reservedState.style.display = "none";
     pickerState.style.display = "block";
-    renderTimeList();
-    if (selectedSlotKey) renderSpotsForSlot(selectedSlotKey);
+    setText("instruction-date", formatDateWithRelative(getTargetDate()));
+    renderTimeGrid();
   }
 }
 
 function startEditReservation() {
   isEditingReservation = true;
   selectedSlotKey = null;
-  selectedSpot = null;
-  timeListOpen = false;
-  const triggerLabel = el("time-trigger-label"); if (triggerLabel) triggerLabel.textContent = "Choose a time…";
-  const list = el("time-list"); if (list) list.style.display = "none";
-  const trigger = el("time-trigger"); if (trigger) trigger.classList.remove("open");
-  const spotsSection = el("spots-section"); if (spotsSection) spotsSection.style.display = "none";
-  const confirmSection = el("confirm-section"); if (confirmSection) confirmSection.style.display = "none";
   renderReservationUI();
 }
 
-
-
-function renderSpotsForSlot(slotKey) {
-  const grid = el("spots-grid");
+function renderTimeGrid() {
+  const grid = el("time-grid");
+  const bookBtn = el("book-spot-btn");
   if (!grid) return;
-  const sd = latestReservations[slotKey] || {};
   grid.innerHTML = "";
-  SPOTS.forEach(spot => {
-    const owner = sd[spot];
-    const card = document.createElement("div");
-    card.className = "spot-card";
-    let statusText, iconClass;
-    if (owner) {
-      card.classList.add("taken");
-      statusText = "Reserved";
-      iconClass = "fa-circle-xmark";
-    } else if (selectedSpot === spot) {
-      card.classList.add("selected");
-      statusText = "Selected — tap Confirm below";
-      iconClass = "fa-circle-check";
-      card.onclick = () => selectSpot(null);
+  TIME_SLOTS.forEach(slot => {
+    const sd = latestReservations[slot.start] || {};
+    const freeCount = SPOTS.length - Object.keys(sd).length;
+    const isFull = freeCount === 0;
+    const isSelected = selectedSlotKey === slot.start;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "time-btn" + (isFull ? " full" : "") + (isSelected ? " selected" : "");
+    btn.textContent = slot.label;
+    if (isFull) {
+      btn.disabled = true;
     } else {
-      card.classList.add("free");
-      statusText = "Available — tap to select";
-      iconClass = "fa-circle-parking";
-      card.onclick = () => selectSpot(spot);
+      btn.onclick = () => selectTimeSlot(slot.start);
     }
-    card.innerHTML =
-      "<div><div class=\"spot-card-name\">" + spot + "</div><div class=\"spot-card-status\">" + statusText + "</div></div>" +
-      "<i class=\"fa-solid " + iconClass + " spot-card-icon\"></i>";
-    grid.appendChild(card);
+    grid.appendChild(btn);
   });
-  const confirmSection = el("confirm-section");
-  if (confirmSection) confirmSection.style.display = selectedSpot ? "block" : "none";
+  if (bookBtn) bookBtn.disabled = !selectedSlotKey;
 }
 
-function selectSpot(spot) {
-  selectedSpot = spot;
-  renderSpotsForSlot(selectedSlotKey);
+function selectTimeSlot(slotKey) {
+  selectedSlotKey = (selectedSlotKey === slotKey) ? null : slotKey;
+  renderTimeGrid();
 }
 
-function cancelPendingSelection() {
-  selectedSpot = null;
-  const confirmSection = el("confirm-section");
-  if (confirmSection) confirmSection.style.display = "none";
-  renderSpotsForSlot(selectedSlotKey);
-}
-
-async function confirmReservation() {
-  if (!selectedSlotKey || !selectedSpot) return;
+async function bookSelectedSlot() {
+  if (!selectedSlotKey) return;
+  const slotKey = selectedSlotKey;
   const dk  = dateKey(getTargetDate());
   const ref = db.collection("reservations").doc(dk);
   try {
     await db.runTransaction(async tx => {
       const snap = await tx.get(ref);
       const data = snap.exists ? snap.data() : {};
-      const sd = data[selectedSlotKey] || {};
-      if (sd[selectedSpot]) { showToast("That spot was just taken — pick another."); return; }
+      const sd = data[slotKey] || {};
+      const freeSpot = SPOTS.find(s => !sd[s]);
+      if (!freeSpot) { showToast("That slot just filled up — pick another."); return; }
       const upd = {};
       for (const [sk, sv] of Object.entries(data)) {
         if (typeof sv === "object") {
@@ -649,11 +550,11 @@ async function confirmReservation() {
           }
         }
       }
-      upd[selectedSlotKey + "." + selectedSpot] = currentPhone;
+      upd[slotKey + "." + freeSpot] = currentPhone;
       tx.set(ref, upd, { merge: true });
     });
     showToast("Spot reserved!");
-    selectedSlotKey = null; selectedSpot = null;
+    selectedSlotKey = null;
     isEditingReservation = false;
   } catch(e) { showToast("Error — please try again."); }
 }
@@ -670,10 +571,12 @@ async function cancelMyRes() {
 
   isShowingCancelMessage = true;
   const reservedState = el("reserved-state");
-  const staticCard = reservedState ? reservedState.querySelector(".res-banner-static") : null;
+  const staticCard = el("res-banner-static");
+  const actions = reservedState ? reservedState.querySelector(".res-banner-actions") : null;
   const msg = el("cancel-confirm-msg");
   if (reservedState) reservedState.style.display = "block";
   if (staticCard) staticCard.style.display = "none";
+  if (actions) actions.style.display = "none";
   if (msg) msg.style.display = "block";
 
   await ref.update(upd);
